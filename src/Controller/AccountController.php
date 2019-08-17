@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -81,6 +82,7 @@ class AccountController extends Controller
  * permet d'afficher et de traiter le formulaire de profile
  * 
  * @Route("/account/profile", name="account_profile")
+ * @IsGranted("ROLE_USER")
  *
  * @return Response
  */
@@ -108,6 +110,8 @@ class AccountController extends Controller
  * Permet de modifier le mot de passe
  * 
  * @Route("/account/password-update", name="account-password")
+ * 
+ * @IsGranted("ROLE_USER")
  *
  * @return Response
  */
@@ -149,6 +153,8 @@ class AccountController extends Controller
  * Permet de d'afficher le profil de l'utilisateur connecté
  * 
  * @Route("/account",name="account_index")
+ * 
+ * @IsGranted("ROLE_USER")
  *
  * @return Response
  */
