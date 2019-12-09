@@ -33,7 +33,7 @@ class Comment
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ad", inversedBy="commentes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ad", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ad;
