@@ -36,6 +36,7 @@ class Booking
     /**
      * @ORM\Column(type="datetime")
      * @Assert\Date(message="Attention, la date d'arrivée doit étre au bon format !")
+     * @Assert\GreaterThan("today")
      */
     private $startDate;
 
