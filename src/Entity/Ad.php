@@ -75,7 +75,7 @@ class Ad
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
-
+ 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="ad")
      */
@@ -85,6 +85,8 @@ class Ad
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="ad", orphanRemoval=true)
      */
     private $comments;
+
+   
 
     
 
@@ -333,4 +335,9 @@ class Ad
 
         return $this;
     }
+
+  
+
+
+ 
 }

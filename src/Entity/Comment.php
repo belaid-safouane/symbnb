@@ -43,19 +43,17 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
- 
     /**
      * Permet de mettre en place la date de création
      * 
      * @ORM\PrePersist
-     *
+     * 
      * @return void
      */
     public function prePersist(){
         if(empty($this->createdAt)){
-            $this->createdAt = new \DateTime();
+           $this->createdAt = new \DateTime();
         }
-
     }
 
     public function getId(): ?int

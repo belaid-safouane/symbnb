@@ -93,11 +93,6 @@ class User implements UserInterface
     private $bookings;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author")
-     */
-    private $yes;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author", orphanRemoval=true)
      */
     private $comments;
@@ -346,37 +341,6 @@ class User implements UserInterface
     /**
      * @return Collection|Comment[]
      */
-    public function getYes(): Collection
-    {
-        return $this->yes;
-    }
-
-    public function addYe(Comment $ye): self
-    {
-        if (!$this->yes->contains($ye)) {
-            $this->yes[] = $ye;
-            $ye->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeYe(Comment $ye): self
-    {
-        if ($this->yes->contains($ye)) {
-            $this->yes->removeElement($ye);
-            // set the owning side to null (unless already changed)
-            if ($ye->getAuthor() === $this) {
-                $ye->setAuthor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Comment[]
-     */
     public function getComments(): Collection
     {
         return $this->comments;
@@ -404,4 +368,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
